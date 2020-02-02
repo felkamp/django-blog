@@ -1,0 +1,11 @@
+.header {
+    background: #FC2D4D;
+}
+
+.nav{
+    height: 50px;
+}
+
+.nav__link{
+    color: black;
+}
