@@ -1,11 +1,16 @@
-{% extends 'blog/base_blog.html' %}
-
+{% extends 'base.html' %}
+{% load static %}
 {% block content %}
+<main>
     <h1>Posts:</h1>
-    {% for name in names%}
-        <p>
-            {{name}}
-        </p>
-    {% endfor %}
+        {% for post in posts%}
+        <article class="post">
+        <h2 class="post__title">{{post.title}}</h2>
+        <p> {{post.body|truncatewords:15}} </p>
+        <a href="{{post.get_absolute_url}}">Read</a>
+        <i>{{post.date_pub}}</i>
+    </article>
+        {% endfor %}
 
+</main>
 {% endblock %}

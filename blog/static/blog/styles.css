@@ -2,6 +2,20 @@
     background: #FC2D4D;
 }
 
+
+.post{
+    width: 400px;
+    margin-right: auto;
+    margin-left: auto;
+    background: darkgray;
+}
+
+.post__title{
+    color: white;
+    background: gray;
+    text-align: center;
+}
+
 .nav{
     height: 50px;
 }
