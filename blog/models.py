@@ -23,3 +23,6 @@ class Tag(models.Model):
 
     def __str__(self):
         return '{}'.format(self.title)
+
+    def get_absolute_url(self):
+        return reverse('tag_detail_url', kwargs={'slug': self.slug})

@@ -1,13 +1,23 @@
 from django.shortcuts import render
-from .models import Post
+from .models import Post, Tag
 
 
 # Create your views here.
 def posts_list(request):
-    posts = Post.objects.all()
+    posts = Post.objects.all().order_by('id')
     return render(request, 'blog/posts.html', context={'posts': posts})
 
 
-def post_detail(request, id,slug):
+def post_detail(request, id, slug):
     post = Post.objects.get(id=id)
     return render(request, 'blog/post_detail.html', context={'post': post})
+
+
+def tags_list(request):
+    tags = Tag.objects.all()
+    return render(request, 'blog/tags.html', context={'tags': tags})
+
+
+def tag_detail(request, slug):
+    tag = Tag.objects.get(slug__iexact=slug)
+    return render(request, 'blog/tag_detail.html', context={'tag': tag})
