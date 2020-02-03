@@ -11,10 +11,10 @@ class Post(models.Model):
     date_pub = models.DateTimeField(auto_now_add=True)
 
     def get_absolute_url(self):
-        return reverse('post_detail_url', kwargs={'id': self.id, 'slug': self.slug})
+        return reverse('post_detail_url', kwargs={'slug': self.slug})
 
     def __str__(self):
-        return '{}'.format(self.title)
+        return self.title
 
 
 class Tag(models.Model):
@@ -22,7 +22,7 @@ class Tag(models.Model):
     slug = models.SlugField(max_length=50, unique=True)
 
     def __str__(self):
-        return '{}'.format(self.title)
+        return self.title
 
     def get_absolute_url(self):
         return reverse('tag_detail_url', kwargs={'slug': self.slug})
