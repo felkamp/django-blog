@@ -5,39 +5,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet"  href="{% static 'css/st.css' %}">
+    <link rel="stylesheet" href="{% static 'css/st.css' %}">
     <title>
         {% block title %}
-            Blog
+        Blog
         {% endblock %}
     </title>
 </head>
 <body>
-    <header class="header">
-        <nav class="nav">
-              <a class="nav__link" href="{% url 'posts_list_url' %}">Blog</a>
-              <a class="nav__link" href="{% url 'tags_list_url' %}">Tags</a>
-              <a class="nav__link" href="">link3</a>
-         </nav>
-    </header>
+<header class="header">
+    <nav class="nav">
+        <a class="nav__link" href="{% url 'posts_list_url' %}">Blog</a>
+        <a class="nav__link" href="{% url 'tags_list_url' %}">Tags</a>
+        <form action="{% url 'posts_list_url' %}">
+            <input type="search" name="search">
+            <button>Search</button>
+        </form>
+    </nav>
+
+</header>
 
 {% block content %}
-    There's no content
+There's no content
 
 {% endblock %}
 
 
-
-    {% if request.user.is_authenticated and request.user.is_staff %}
-    {% block admin-panel %}
-    <div class="admin-panel">
-        <a href="/admin">Admin</a>
-        <button><a href="{% url 'post_create_url' %}">Create post</a></button>
-        <button><a href="{% url 'tag_create_url' %}">Create tag</a></button>
-    </div>
-    {% endblock %}
-    {% endif %}
-
+{% if request.user.is_authenticated and request.user.is_staff %}
+{% block admin-panel %}
+<div class="admin-panel">
+    <a href="/admin">Admin</a>
+    <button><a href="{% url 'post_create_url' %}">Create post</a></button>
+    <button><a href="{% url 'tag_create_url' %}">Create tag</a></button>
+</div>
+{% endblock %}
+{% endif %}
 
 
 </body>
