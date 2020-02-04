@@ -23,14 +23,22 @@
 
 {% block content %}
     There's no content
+
 {% endblock %}
 
-{% block admin-panel %}
+
+
+    {% if request.user.is_authenticated and request.user.is_staff %}
+    {% block admin-panel %}
     <div class="admin-panel">
         <a href="/admin">Admin</a>
         <button><a href="{% url 'post_create_url' %}">Create post</a></button>
         <button><a href="{% url 'tag_create_url' %}">Create tag</a></button>
     </div>
-{% endblock %}
+    {% endblock %}
+    {% endif %}
+
+
+
 </body>
 </html>

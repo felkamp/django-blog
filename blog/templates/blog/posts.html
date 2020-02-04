@@ -3,9 +3,24 @@
 {% block content %}
 <main>
     <h1>Posts:</h1>
-    {% for post in posts%}
-      {% include 'blog/includes/post_card_template.html' %}
+    {% for post in page_object.object_list%}
+    {% include 'blog/includes/post_card_template.html' %}
     {% endfor %}
 </main>
+
+{% if is_paginated %}
+<div class="navigation">
+    <a href="{{prev_url}}">Previos</a>
+    {% for n in page_object.paginator.page_range%}
+    {% if page_object.number == n %}
+         <a href="?page={{ n }}" style="color: red">{{n}}</a>
+    {% elif n > page_object.number|add:-3 and n < page_object.number|add:3 %}
+    <a href="?page={{ n }}">{{n}}</a>
+    {% endif %}
+    {% endfor %}
+    <a href="{{next_url}}">Next</a>
+</div>
+{% endif %}
+
 {% endblock %}
 

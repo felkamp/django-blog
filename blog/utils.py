@@ -5,7 +5,7 @@ from django.shortcuts import redirect
 from django.urls import reverse
 
 
-class ObjectDetailMixin():
+class ObjectDetailMixin:
     model = None
     template = None
 
