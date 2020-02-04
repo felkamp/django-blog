@@ -1,0 +1,44 @@
+.header {
+    background-color: black;
+
+}
+.post{
+    width: 400px;
+    margin-right: auto;
+    margin-left: auto;
+    background: darkgray;
+}
+
+.post__title{
+    color: white;
+    background: gray;
+    text-align: center;
+}
+
+.nav{
+    height: 50px;
+}
+
+.nav__link{
+    color: white;
+}
+
+.admin-panel{
+    padding: 15px;
+   background: gray;
+    border: 1px solid #999;
+    border-radius: 2px;
+    position: fixed;
+    right: 50px;
+    bottom: 30px;
+    opacity: 0.3;
+    width: 50px;
+    text-align: center;
+}
+
+.admin-panel:hover{
+opacity: 1;
+}
+.admin-panel a{
+display: block;
+}

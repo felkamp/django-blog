@@ -10,3 +10,11 @@
         {% include 'blog/includes/post_card_template.html' %}
     {% endfor%}
 {% endblock %}
+
+{% block admin-panel %}
+    <div class="admin-panel">
+        <a href="/admin">Admin</a>
+        <button><a href="{{admin_object.get_update_url}}">Edit</a></button>
+        <button><a href="{{admin_object.get_delete_url}}">Delete</a></button>
+    </div>
+{% endblock %}

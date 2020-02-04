@@ -1,11 +1,11 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    {% load static %}
-    <link rel="stylesheet"  href="{% static 'blog/styles.css' %}">
+    <link rel="stylesheet"  href="{% static 'css/st.css' %}">
     <title>
         {% block title %}
             Blog
@@ -25,5 +25,12 @@
     There's no content
 {% endblock %}
 
+{% block admin-panel %}
+    <div class="admin-panel">
+        <a href="/admin">Admin</a>
+        <button><a href="{% url 'post_create_url' %}">Create post</a></button>
+        <button><a href="{% url 'tag_create_url' %}">Create tag</a></button>
+    </div>
+{% endblock %}
 </body>
 </html>

@@ -8,3 +8,11 @@
        <h1>{{post.title}}</h1>
     <p>{{post.body}}</p>
 {% endblock %}
+
+{% block admin-panel %}
+    <div class="admin-panel">
+        <a href="/admin">Admin</a>
+        <button><a href="{{admin_object.get_update_url}}">Edit</a></button>
+        <button><a href="{{admin_object.get_delete_url}}">Delete</a></button>
+    </div>
+{% endblock %}
